@@ -1,0 +1,4 @@
+Django==1.6.3
+Markdown==2.4
+django-pagedown==0.1.0
+wsgiref==0.1.2
