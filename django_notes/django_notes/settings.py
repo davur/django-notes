@@ -37,11 +37,10 @@ DEFAULT_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pagedown',
-    'notes',
 )
 THIRDPARTY_APPS = (
     'pagedown',
+    'rest_framework',
 )
 LOCAL_APPS = (
     'notes',
@@ -118,4 +117,3 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 )
-

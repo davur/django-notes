@@ -10,12 +10,6 @@ class Tag(models.Model):
     title = models.CharField(
         max_length = 255
     )
-    slug = models.SlugField(
-        verbose_name = _(u'Slug'),
-        help_text = _(u'URI identifier.'),
-        max_length = 255,
-        unique = True
-    )
 
     def __unicode__(self):
         return "%s" % (self.title,)
@@ -26,16 +20,16 @@ class Note(models.Model) :
     class Meta:
         ordering = ['-date_modified']
 
+    owner = models.ForeignKey(
+        'auth.User',
+        related_name='notes',
+        verbose_name = _(u'Owner'),
+        help_text = _(u' '),
+    )
     title = models.CharField(
         verbose_name = _(u'Title'),
         help_text = _(u' '),
         max_length = 255
-    )
-    slug = models.SlugField(
-        verbose_name = _(u'Slug'),
-        help_text = _(u'URI identifier.'),
-        max_length = 255,
-        unique = True
     )
     content_raw = models.TextField(
         verbose_name = _(u'Content (Markdown)'),
@@ -53,12 +47,12 @@ class Note(models.Model) :
     )
     date_modified = models.DateTimeField()
 
-    def save(self):
+    def save(self, *args, **kwargs):
         ''' On save, update timestamps '''
         if not self.id:
             self.date_created = datetime.datetime.today()
         self.date_modified = datetime.datetime.today()
-        super(Note, self).save()
+        super(Note, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return "%s" % (self.title,)
