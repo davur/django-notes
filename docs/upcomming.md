@@ -4,17 +4,19 @@ Upcomming
 
 Next 3
 ------
+[ ] Add markdown support
 [ ] Add notebook, -note, tag models-
-[ ] Add simple views
-[ ] Add django rest framework api
+[ ] Add permissions to api
 
 Backlog
 -------
-[ ] Add single page app js front end
-[ ] Add permissions to api
 [ ] Add tests for api
 [ ] Add grappelli admin interface
+[ ] Add heroku support
 
 Completed
 ---------
 [x] -Add models to django admin-
+[x] Add simple views
+[x] Add django rest framework api
+[x] Add single page app js front end (prototype)

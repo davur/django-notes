@@ -12,13 +12,13 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Note
-        fields = ('url', 'owner', 'title', 'content_raw', 'tags',)
+        fields = ('id', 'url', 'owner', 'title', 'content_raw', 'tags',)
 
 
 class TagSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Tag
-        fields = ('url', 'title',)
+        fields = ('id', 'url', 'title',)
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

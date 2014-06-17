@@ -1,0 +1,89 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head>
+    <title>Ember.js showcase</title>
+    <meta charset="utf-8"/>
+
+    <!-- Ember requirements -->
+    <script src="{% static 'script/thirdparty/jquery/jquery.js' %}" type="text/javascript"></script>
+    <script src="{% static 'script/thirdparty/handlebars/handlebars.js' %}" type="text/javascript"></script>
+    <script src="{% static 'script/thirdparty/ember/ember.js' %}" type="text/javascript"></script>
+    <script src="{% static 'script/thirdparty/ember-data/ember-data.js' %}" type="text/javascript"></script>
+    <script src="{% static 'script/thirdparty/ember-data-django-rest-adapter/ember-data-django-rest-adapter.js' %}" type="text/javascript"></script>
+
+    <!-- Bootstrap for now -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Other libraries... -->
+
+    <!-- Application code -->
+    <script src="{% static 'script/app/notes.js' %}" type="text/javascript"></script>
+</head>
+<body>
+  {% verbatim %}
+
+    <script type="text/x-handlebars">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+            <li>{{#link-to 'notes'}}Notes{{/link-to}}</li>
+            <li>{{#link-to 'tags'}}Tags{{/link-to}}</li>
+          </ul>
+        </div>
+      </nav>
+      {{outlet}}
+    </script>
+
+    <script type="text/x-handlebars" id="notes">
+      <div class="container-fluid">
+        <div class="col-sm-3">
+          <ul class="nav">
+            {{#each}}
+              <li>
+                {{#link-to 'note' this}}
+                  {{title}}
+                {{/link-to}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+        <div class="col-sm-9">
+          {{ outlet }}
+        </div>
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" id="note">
+      <h2>{{title}}</h2>
+      {{content_raw}}
+    </script>
+
+    <script type="text/x-handlebars" id="tags">
+      <div class="container-fluid">
+        <div class="col-sm-3">
+          <ul class="nav">
+            {{#each}}
+              <li>
+                {{#link-to 'tags'}}
+                  {{title}}
+                {{/link-to}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+        <div class="col-sm-9">
+          <p><em class="muted">Coming soon</em></p>
+        </div>
+      </div>
+    </script>
+
+  {% endverbatim %}
+
+  <div class="container">
+    <div id="ember"></div>
+  </div>
+
+</body>
+</html>
