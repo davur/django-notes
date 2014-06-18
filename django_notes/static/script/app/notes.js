@@ -4,7 +4,8 @@ Notes = Ember.Application.create({
 
 Notes.Note = DS.Model.extend({
     title: DS.attr('string'),
-    content_raw: DS.attr('string')
+    content_raw: DS.attr('string'),
+    content_html: DS.attr('string')
     //tags: DS.hasMany('tag', { async: true })
 });
 
@@ -39,6 +40,3 @@ Notes.TagController = Ember.ObjectController.extend({});
 Notes.ApplicationAdapter = DS.DjangoRESTAdapter.extend({
     namespace: 'api'
 });
-
-
-console.log("hey");
