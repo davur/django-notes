@@ -4,9 +4,9 @@ Upcomming
 
 Next 3
 ------
-[ ] Add notes filter by tag
 [ ] Add notebook, -note, tag models-
 [ ] Add permissions to api
+[ ] Split out handlebars templates
 
 Backlog
 -------
@@ -16,6 +16,7 @@ Backlog
 
 Completed
 ---------
+[x] Add notes filter by tag, tag_id, and title
 [x] Add codehilite markdown plugin
 [x] Add markdown support
 [x] Add models to django admin
