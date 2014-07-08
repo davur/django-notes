@@ -4,6 +4,9 @@ import datetime
 
 import markdown
 
+
+
+
 class Tag(models.Model):
     """Tag Model"""
     class Meta:
@@ -59,7 +62,7 @@ class Note(models.Model) :
             self.date_created = datetime.datetime.today()
         self.date_modified = datetime.datetime.today()
         self.content_html = markdown.markdown(self.content_raw,
-                                               extensions=["tables"],
+                                               extensions=["tables", "codehilite"],
                                                safe_mode=True)
         super(Note, self).save(*args, **kwargs)
 
