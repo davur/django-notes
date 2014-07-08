@@ -16,6 +16,7 @@ Backlog
 
 Completed
 ---------
+[x] Add codehilite markdown plugin
 [x] Add markdown support
 [x] Add models to django admin
 [x] Add simple views
